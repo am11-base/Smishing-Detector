@@ -2,8 +2,8 @@
 # coding: utf-8
 
 # In[244]:
-## 
-# @mainpage SmishGuard: A Smishing Detection SMS Framework 
+##
+# @mainpage SmishGuard: A Smishing Detection SMS Framework
 #
 # @section author_code Author
 # - Created by Sreeraj R S on 15/02/2023
@@ -11,20 +11,20 @@
 #
 # @section data_augmentation Data Augmentation
 #
-# @section vector_ization Vectorization 
-# 
-# 
+# @section vector_ization Vectorization
+#
+#
 
 ##
-# @file FP2_ham.py 
+# @file FP2_ham.py
 #
-# @brief A python program to read the dataset of CSV format and augmenting the data contained in it 
+# @brief A python program to read the dataset of CSV format and augmenting the data contained in it
 #
 ## @section code_block Blocks
 #
 ## @subsection libraries_main Libraries
 # - warnings Library(https://docs.python.org/3/library/warnings.html#:~:text=Warning%20messages%20are%20typically%20issued,program%20uses%20an%20obsolete%20module.)
-# - pandas Library(https://pandas.pydata.org/docs/) 
+# - pandas Library(https://pandas.pydata.org/docs/)
 # - textaugment Library(https://github.com/dsfsi/textaugment)
 # - nlpaug Library(https://towardsdatascience.com/data-augmentation-library-for-text-9661736b13ff)
 #
@@ -79,7 +79,7 @@ aug=nac.OcrAug()
 aug2=nac.KeyboardAug()
 aug3=nac.RandomCharAug(action='delete')
 aug4=naw.SynonymAug(aug_src='wordnet')
-aug5=naw.AntonymAug()
+#aug5=naw.AntonymAug()
 aug6=naw.RandomWordAug(action='swap')
 
 
@@ -97,8 +97,8 @@ for i in df1.index:
         #text1=aug2.augment(text)
         #text1=aug3.augment(text)
         #text1=aug4.augment(text)
-        text1=aug5.augment(text)
-        #new_row={'LABEL': 0, 'TEXT': text1} 
+        text1=aug6.augment(text)
+        #new_row={'LABEL': 0, 'TEXT': text1}
         new_row={'LABEL': 0, 'TEXT': text1[0]} #variation for appending nlpaug as it adds square brackets
         df=df.append(pd.Series(new_row,index=df.columns),ignore_index=True)
 
@@ -117,7 +117,7 @@ for i in df2.index:
         #text1=aug2.augment(text)
         #text1=aug3.augment(text)
         #text1=aug4.augment(text)
-        text1=aug5.augment(text)
+        text1=aug6.augment(text)
         new_row1={'LABEL': 1, 'TEXT': text1[0]}
         df=df.append(pd.Series(new_row1,index=df.columns),ignore_index=True)
 
@@ -136,7 +136,7 @@ for i in df3.index:
         #text1=aug2.augment(text)
         #text1=aug3.augment(text)
         #text1=aug4.augment(text)
-        text1=aug5.augment(text)
+        text1=aug6.augment(text)
         new_row2={'LABEL': 2, 'TEXT': text1[0]}
         df=df.append(pd.Series(new_row2,index=df.columns),ignore_index=True)
 
@@ -145,4 +145,3 @@ for i in df3.index:
 
 
 df.to_csv('data_8.csv',index=False)
-
