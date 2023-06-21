@@ -7,7 +7,8 @@ def email_check(line):
         return 0
     
 def http_check(line):
-    http = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', line)
+    http =re.findall(r'(https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+|(?:www\.|(?:[a-zA-Z]{1}[-\w]+\.[a-zA-Z]{2,}))(?:[-\w./?%&=]*)?)', line)
+    print(http)
     if not http:
         return 0
     else:

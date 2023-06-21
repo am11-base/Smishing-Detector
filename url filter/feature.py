@@ -29,7 +29,7 @@ def tld_count(tokens):
     tld_list=['.com', '.net', '.org', '.io', '.co', '.ai', '.co.uk', '.ca', '.dev', '.me', '.de', '.app', '.in', '.is', '.eu', '.gg', '.to', 
 '.ph', '.nl', '.id', '.inc', '.website', '.xyz', '.club', '.online', '.info', '.store', '.best', '.live', '.us', '.tech', '.pw', '.pro', '.uk', '.tv', '.cx', '.mx', '.fm', '.cc', '.world', '.space', '.vip', '.life', '.shop', '.host', '.fun', '.biz', '.icu', '.design', '.art'] 
     for i in tokens:
-        if i in tld:
+        if i in tld_list:
             count=count+1
     return count
 
@@ -84,7 +84,7 @@ def suspecious_tld(tld):
         'ren', 'mom', 'party', 'review', 'trade', 'accountants',
         'science', 'work', 'ninja', 'xyz', 'faith', 'zip', 'cricket', 'win',
         'accountant', 'realtor', 'top', 'christmas', 'gdn', # Shady Top-Level Domains
-        'link','zw','bd','ke','pw','quest','support','rest','casa' # Blue Coat Systems
+        'link','zw','bd','ke','pw','quest','support','rest','casa', # Blue Coat Systems
         'asia', 'club', 'la', 'ae', 'exposed', 'pe', 'go.id', 'rs', 'k12.pa.us', 'or.kr',
         'ce.ke', 'audio', 'gob.pe', 'gov.az', 'website', 'bj', 'mx', 'media', 'sa.gov.au' # statistics
         ]

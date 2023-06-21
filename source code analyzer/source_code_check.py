@@ -7,6 +7,7 @@ os.environ['PATH']+=r"C:/SeleniumDriver"
 
 driver = webdriver.Chrome()
 def get_subpage_source(url):
+    #return 1 if smishing
     driver.get(url)
     source = driver.page_source
     if "<input" in source and ("type=\"text\"" in source or "type=\"email\"" in source or "type=\"password\"" in source):
