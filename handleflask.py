@@ -60,6 +60,13 @@ def phoneNumber_check(line):
 
 #content analyzer module
 warnings.filterwarnings('ignore', category=DeprecationWarning)
+def clean_text(text):
+    stopwords = nltk.corpus.stopwords.words('english')
+    ps = nltk.WordNetLemmatizer()
+    tokens = re.split('\W+', text)
+    stems = [ps.lemmatize(word) for word in tokens if word not in stopwords] # Remove Stopwords
+    return stems
+
 def content_analyze(sms):
     
    
@@ -74,12 +81,6 @@ def content_analyze(sms):
         return(model.predict(vector))
     #print(vector)
     
-def clean_text(text):
-    stopwords = nltk.corpus.stopwords.words('english')
-    ps = nltk.WordNetLemmatizer()
-    tokens = re.split('\W+', text)
-    stems = [ps.lemmatize(word) for word in tokens if word not in stopwords] # Remove Stopwords
-    return stems
 
 
 ################################################urlfilter module#######################
