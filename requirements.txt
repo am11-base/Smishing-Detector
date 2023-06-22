@@ -2,7 +2,7 @@ numpy==1.19.5
 requests==2.26.0
 nltk==3.6.5
 scipy==1.7.1
-urlexpander==0.1.6
+urlexpander==0.0.37
 editdistance==0.5.3
 python-whois==0.7.3
 tldextract==3.1.2
