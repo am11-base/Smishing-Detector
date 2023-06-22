@@ -489,7 +489,8 @@ def apk_check(url):
 def predict_api():
     get_req=request.get_json()
     sms=get_req['sms']
-    print("Sms",sms)
+    print("Sms:",sms)
+    print(type(sms))
     content_analysis=content_analyze(sms)
     url=url_extract(sms)
     if url is None:
